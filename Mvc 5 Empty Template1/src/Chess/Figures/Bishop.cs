@@ -15,9 +15,9 @@ namespace WebApplication1.src.Chess.Figures
             return color + "Bishop";
         }
 
-        public override int getValue()
+        public override int gerMaterialValue()
         {
-            return 3;
+            return Figure.BISHOP_VALUE;
         }
         public override List<Coordinate> getAllPossibleMoves(int line, int collumn, Figure[][] figures)
         {

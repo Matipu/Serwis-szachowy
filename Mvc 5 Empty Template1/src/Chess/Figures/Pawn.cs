@@ -17,9 +17,9 @@ namespace WebApplication1.src.Chess.Figures
         {
             return color + "Pawn";
         }
-        public override int getValue()
+        public override int gerMaterialValue()
         {
-            return 1;
+            return Figure.PAWN_VALUE;
         }
         public override List<Coordinate> getAllPossibleMoves(int line, int collumn, Figure[][] figures)
         {

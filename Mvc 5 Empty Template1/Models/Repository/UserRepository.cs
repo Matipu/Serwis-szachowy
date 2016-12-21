@@ -35,6 +35,22 @@ namespace SerwisSzachowy.Models.Repository
             ctx.Users.Add(tUser);
             ctx.SaveChanges();
         }
+        public void addFinishedGames(User tUser)
+        {
+            ctx.Users.Remove(ctx.Users.FirstOrDefault(user => (user.Id == tUser.Id)));
+            tUser.finishedGames++;
+            ctx.Users.Add(tUser);
+            ctx.SaveChanges();
+        }
+
+        public void setColors(User tUser, String color1, String color2)
+        {
+            ctx.Users.Remove(ctx.Users.FirstOrDefault(user => (user.Id == tUser.Id)));
+            tUser.background_color = color1;
+            tUser.background_color2 = color2;
+            ctx.Users.Add(tUser);
+            ctx.SaveChanges();
+        }
 
     }
 }

@@ -13,17 +13,17 @@ namespace SerwisSzachowy.src.Chess.Serializers
     {
         public GameResponse toGameResponse(Game game)
         {
-            
+
             String[][] names;
             names = new String[8][];
             for (int i = 0; i < 8; i++)
             {
                 names[i] = new String[8];
                 for (int j = 0; j < 8; j++)
-                    if (game.chessboard.getFigure(i,j) != null)
+                    if (game.chessboard.getFigure(i, j) != null)
                         names[i][j] = game.chessboard.getFigure(i, j).getName();
             }
-            GameResponse gameResponse = new GameResponse(names, game.playerColor, game.startDate, game.id, game.difficult, game.history);
+            GameResponse gameResponse = new GameResponse(names, game.playerColor, game.startDate, game.id, game.difficult, game.history, game.numberOfMovements, game.finishStatus);
             return gameResponse;
         }
 
@@ -37,13 +37,15 @@ namespace SerwisSzachowy.src.Chess.Serializers
             {
                 figures[i] = new Figure[8];
                 for (int j = 0; j < 8; j++)
-                        figures[i][j] = getFigureByName(gameResponse.figures[i][j], i ,j);
+                    figures[i][j] = getFigureByName(gameResponse.figures[i][j], i, j);
             }
             game.chessboard = new Chessboard(figures);
             game.playerColor = gameResponse.playerColor;
             game.startDate = gameResponse.startDate;
             game.difficult = gameResponse.difficult;
             game.history = gameResponse.history;
+            game.numberOfMovements = gameResponse.numberOfMovements;
+            game.finishStatus = gameResponse.finishStatus;
             return game;
         }
 
@@ -56,7 +58,7 @@ namespace SerwisSzachowy.src.Chess.Serializers
 
             if (name == "bPawn")
             {
-                return new Pawn("b",x,y);
+                return new Pawn("b", x, y);
             }
             else if (name == "wPawn")
             {

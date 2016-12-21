@@ -255,6 +255,7 @@
     <Compile Include="src\Chess\Figures\Knight.cs" />
     <Compile Include="src\Chess\Figures\Pawn.cs" />
     <Compile Include="src\Chess\Serializers\ChessboardSerializer.cs" />
+    <Compile Include="src\SI.cs" />
     <Compile Include="src\Response\GameResponse.cs" />
     <Compile Include="src\Response\DefaultResponse.cs" />
   </ItemGroup>

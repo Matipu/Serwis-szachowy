@@ -16,9 +16,9 @@ namespace WebApplication1.src.Chess.Figures
             return color + "Rook";
         }
 
-        public override int getValue()
+        public override int gerMaterialValue()
         {
-            return 5;
+            return Figure.ROOK_VALUE;
         }
 
         public override List<Coordinate> getAllPossibleMoves(int line, int collumn, Figure[][] figures)

@@ -64,5 +64,11 @@ namespace SerwisSzachowy.Models.Repository
             return 5;
         }
 
+        public void logData(String text)
+        {
+            string tmp = System.IO.File.ReadAllText(@"C:\Data\logi.txt");
+            System.IO.File.WriteAllText(@"C:\Data\logi.txt", tmp + Environment.NewLine + text);
+        }
+
     }
 }
